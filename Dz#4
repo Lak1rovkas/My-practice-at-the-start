@@ -1,0 +1,31 @@
+using System;
+
+namespace Practice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int evennumber = 0;
+            int oddnumber = 0;
+            int count = 0;
+            int limit = int.Parse(Console.ReadLine());
+            while (count < limit)
+            {
+                count++;
+                if (count % 2 == 0)
+                {
+                    evennumber++;                    
+                }
+                else
+                {
+                    oddnumber++;                    
+                }
+            }
+            Console.WriteLine(evennumber);
+            Console.WriteLine(oddnumber);
+            int result = oddnumber + evennumber;
+            Console.WriteLine(result);
+        }
+    }
+}
