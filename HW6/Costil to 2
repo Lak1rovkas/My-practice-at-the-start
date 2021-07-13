@@ -1,0 +1,36 @@
+using System;
+
+namespace HomeWork6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите количество элементов массива:");
+            int a = Convert.ToInt32(Console.ReadLine());
+            int[] Array1 = new int[a];
+            Console.WriteLine($"Введите {a} элементов массива:");
+            for (int i = 0; i < a; i++)
+            {                
+                Array1[i] = int.Parse(Console.ReadLine());               
+            }
+            Console.WriteLine("Ваш массив:");
+            for (int i = 0; i < a; i++)
+            {
+                Console.WriteLine(Array1[i]);
+            }
+            Console.WriteLine("Массив в обратном порядке:");
+            for (int b = a - 1; b < Array1.Length; b--)
+            {
+                try
+                {
+                    Console.WriteLine(Array1[b]);
+                }
+                catch
+                {                    
+                    break;
+                }                
+            }
+        }
+    }
+}
