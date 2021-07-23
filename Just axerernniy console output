@@ -1,0 +1,50 @@
+using System;
+
+namespace Practice
+{
+    class Program
+    {       
+        static void Main(string[] args)
+        {
+            int[,,,] myArray = new int[4, 3, 5, 5];
+            Random random = new Random();
+            
+            for(int a = 0; a < myArray.GetLength(0); a++)
+            {
+                for (int b = 0; b < myArray.GetLength(1); b++)
+                {
+                    for (int c = 0; c < myArray.GetLength(2); c++)
+                    {
+                        for (int d = 0; d < myArray.GetLength(3); d++)
+                        {
+                            myArray[a, b, c, d] = random.Next(100);
+                        }
+                    }
+                }
+            }
+            for (int w = 0; w < myArray.GetLength(0); w++)
+            {
+                Console.WriteLine("Notebook №" + (w + 1));
+
+                for (int x = 0; x < myArray.GetLength(1); x++)
+                {
+                    Console.WriteLine("Page №" + (x + 1));
+
+                    for (int y = 0; y < myArray.GetLength(2); y++)
+                    {
+                        for (int z = 0; z < myArray.GetLength(3); z++)
+                        {
+                            Console.Write(myArray[w, x, y, z] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+
+
+
+        }
+    }
+}
