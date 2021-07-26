@@ -1,0 +1,46 @@
+using System;
+using System.Linq;
+
+namespace Practice
+{
+    class Program
+    {       
+        static void Main(string[] args)
+        {
+            const int n = 2;
+            int[] a = new int[n];
+            int[] b = new int[n];
+            int[] c = new int[n + n];            
+            int k = 0;
+            
+            Console.WriteLine("Введите элементы первого массива: ");
+            for (int x = 0; x < n; x++)
+            {
+                a[x] = int.Parse(Console.ReadLine());
+            }
+            
+            Console.WriteLine("Введите элементы второго массива: ");            
+            for(int y = 0; y < n; y++)
+            {
+                b[y] = int.Parse(Console.ReadLine());
+            }                       
+            
+            for(int i = 0; i < n; i++)
+            {
+                c[k++] = a[i];
+            }
+            
+            for(int j = 0; j < n; j++)
+            {
+                c[k++] = b[j];
+            }
+
+            Console.WriteLine("Сортировка массива по возрастанию: ");
+            for (int d = 0; d < n + n; d++)
+            {
+                int[] e = c.OrderBy(i => i).ToArray();
+                Console.WriteLine(e[d]);
+            }
+        }
+    }
+}
