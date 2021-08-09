@@ -1,0 +1,17 @@
+using System;
+
+namespace Practice
+{
+    class Program
+    {       
+        static void Main(string[] args)
+        {
+            string a = Console.ReadLine();
+            ReturnString(a);           
+        }
+        static void ReturnString (string a) 
+        {
+            Console.WriteLine("You have entered: " + a);
+        }
+    }
+}
