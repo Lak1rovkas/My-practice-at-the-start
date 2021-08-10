@@ -1,0 +1,57 @@
+using System;
+
+namespace Practice
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Length of Array: ");
+            int MyarrayLength = int.Parse(Console.ReadLine());
+            int[] Myarray = new int[MyarrayLength];
+            int MinValue, MaxValue;
+
+            Console.WriteLine("Enter the range of array :)");
+            Console.Write("MinValue is: ");
+            MinValue = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            Console.Write("Max Value is: ");
+            MaxValue = int.Parse(Console.ReadLine());
+
+            Random Rand = new Random();
+            for(int i = 0; i < Myarray.Length; i++)
+            {
+                Myarray[i] = Rand.Next(MinValue, MaxValue);
+            }
+
+            int index = LookingForIndexOfElement(Myarray);
+            if (index == -1)
+            {
+                Console.WriteLine("Unfortunately, the array doesn't exist this element :("); //At the end is smile)
+            }
+            else
+            {
+                Console.WriteLine("The index of array element you looking for is: " + index);
+            }
+        }
+
+            static int LookingForIndexOfElement(int[] arr)
+        {
+            int EnteringTheElementofArray;
+            int b;
+            Console.Write("Enter the element of array which you want found: ");
+            EnteringTheElementofArray = int.Parse(Console.ReadLine());            
+                                                
+            for (b = 0; b < arr.Length; b++)
+            {
+                if (EnteringTheElementofArray == arr[b])
+                {
+                    return b;
+                }                                
+            }
+            return -1;                                   
+        }           
+    }
+}
