@@ -4,30 +4,34 @@ namespace Practice
 {
     class Program
     {
+        const int ITEM_NOT_FOUND = -1;
         static void Main(string[] args)
         {
             Console.WriteLine("Enter Length of Array: ");
-            int MyarrayLength = int.Parse(Console.ReadLine());
-            int[] Myarray = new int[MyarrayLength];
-            int MinValue, MaxValue;
+            int myarrayLength = int.Parse(Console.ReadLine());
+            int[] myarray = new int[myarrayLength];
+            int minvalue, maxvalue;
 
             Console.WriteLine("Enter the range of array :)");
             Console.Write("MinValue is: ");
-            MinValue = int.Parse(Console.ReadLine());
+            minvalue = int.Parse(Console.ReadLine());
 
             Console.WriteLine();
 
             Console.Write("Max Value is: ");
-            MaxValue = int.Parse(Console.ReadLine());
+            maxvalue = int.Parse(Console.ReadLine());
 
-            Random Rand = new Random();
-            for(int i = 0; i < Myarray.Length; i++)
+            Random rand = new Random();
+            for(int i = 0; i < myarray.Length; i++)
             {
-                Myarray[i] = Rand.Next(MinValue, MaxValue);
+                myarray[i] = rand.Next(minvalue, maxvalue);
             }
+            
+            Console.Write("Enter the element of array which you want found: ");
+            int enteringtheelementofarray = int.Parse(Console.ReadLine());
 
-            int index = LookingForIndexOfElement(Myarray);
-            if (index == -1)
+            int index = LookingForIndexOfElement(myarray, enteringtheelementofarray);
+            if (index == ITEM_NOT_FOUND)
             {
                 Console.WriteLine("Unfortunately, the array doesn't exist this element :("); //At the end is smile)
             }
@@ -36,22 +40,16 @@ namespace Practice
                 Console.WriteLine("The index of array element you looking for is: " + index);
             }
         }
-
-            static int LookingForIndexOfElement(int[] arr)
-        {
-            int EnteringTheElementofArray;
-            int b;
-            Console.Write("Enter the element of array which you want found: ");
-            EnteringTheElementofArray = int.Parse(Console.ReadLine());            
-                                                
-            for (b = 0; b < arr.Length; b++)
+        static int LookingForIndexOfElement(int[] arr, int enteringtheelementofarray)
+        {                                                                                              
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (EnteringTheElementofArray == arr[b])
+                if (enteringtheelementofarray == arr[i])
                 {
-                    return b;
+                    return i;
                 }                                
             }
-            return -1;                                   
+            return ITEM_NOT_FOUND;                                   
         }           
     }
 }
