@@ -1,0 +1,72 @@
+using System;
+
+namespace Adding_and_Deleting_Array_Elements
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите количество элементов массива:");
+            int a = int.Parse(Console.ReadLine());
+            int[] arr = new int[a];            
+            int b = 0;
+            for (int i = 0; i < a; i++)
+            {
+                Console.WriteLine("Нажмите цифру для выбора действия, которое вы хотите осуществить:");
+                Console.WriteLine("1. Добавить элемент в начало массива.");
+                Console.WriteLine("2. Добавить элемент в конец массива.");
+                Console.WriteLine("3. Добавить элемент по индексу.");
+                Console.WriteLine("4. Завершить работу и вывести массив.");
+                b = int.Parse(Console.ReadLine());
+                if(b == 4)
+                {
+                    break;
+                }
+                switch (b)
+                {
+                    case 1:
+                        AddStartElement(arr);
+                        break;
+                    case 2:
+                        AddFinishElement(arr);
+                        break;
+                    case 3:
+                        AddIndexElement(arr);
+                        break;
+                    default:
+                        Console.WriteLine("Вы нажали неправильную кнопку, повторите попытку");
+                        break;
+                }
+            }
+            OutputMethod(arr);
+        }
+        static int AddStartElement(int[] array)
+        {
+            Console.WriteLine("Введите начальный элемент массива, который вы хотите добавить: ");
+            array[0] = int.Parse(Console.ReadLine());            
+            return array[0];
+        }
+        static int AddFinishElement(int[] array)
+        {
+            Console.WriteLine("Введите последний элемент массива, который вы хотите добавить: ");
+            array[^1] = int.Parse(Console.ReadLine());
+            return array[^1];
+        }
+        static int AddIndexElement(int[] array)
+        {
+            Console.WriteLine("Введите порядковый номер элемента массива, в который вы хотите добавить значение: ");
+            int result = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите значение, которое хотите добавить: ");            
+            array[result - 1] = int.Parse(Console.ReadLine());
+            return array[result - 1];
+        }
+        static void OutputMethod(int[] array)
+        {
+            Console.WriteLine("Массив: ");
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+        }
+    }
+}
