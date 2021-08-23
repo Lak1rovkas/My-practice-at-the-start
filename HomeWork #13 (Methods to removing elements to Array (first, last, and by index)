@@ -1,0 +1,82 @@
+using System;
+
+namespace Triangle
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите количество элементов массива:");
+            int a = int.Parse(Console.ReadLine());
+            int[] arr = new int[a];
+            Console.WriteLine("Введите элементы массива:");
+            for (int i = 0; i < a; i++)
+            {                
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            int switchvariable;
+            for (int i = 0; i < a; i++)
+            {
+                Console.WriteLine("Нажмите цифру для выбора действия, которое вы хотите осуществить:");
+                Console.WriteLine("1. Удалить элемент в начале массива.");
+                Console.WriteLine("2. Удалить элемент в конце массива.");
+                Console.WriteLine("3. Удалить элемент по индексу.");
+                Console.WriteLine("4. Завершить работу и вывести массив.");
+                switchvariable = int.Parse(Console.ReadLine());
+                if (switchvariable == 4)
+                {
+                    break;
+                }
+                switch (switchvariable)
+                {
+                    case 1:                        
+                        RemoveStartElement(ref arr);
+                        break;
+                    case 2:                        
+                        RemoveFinishElement(ref arr);
+                        break;
+                    case 3:
+                        Console.WriteLine("Введите индекс элемента массива, в котором вы хотите удалить значение: ");
+                        int index = int.Parse(Console.ReadLine());                        
+                        RemoveIndexElement(ref arr, index);
+                        break;
+                    default:
+                        Console.WriteLine("Вы нажали неправильную кнопку, повторите попытку");
+                        break;
+                }
+            }
+            Console.WriteLine("Массив: ");
+            OutputMethod(arr);
+        }
+        static void RemoveStartElement(ref int[] array)
+        {
+            int index = 0;
+            RemoveIndexElement(ref array, index);
+        }
+        static void RemoveFinishElement(ref int[] array)
+        {
+            int index = array.Length - 1;
+            RemoveIndexElement(ref array, index);            
+        }
+        static void RemoveIndexElement(ref int[] array, int index)
+        {
+            int[] finalarray = new int [array.Length - 1];
+            for(int i = 0; i < index; i++)
+            {
+                finalarray[i] = array[i];
+            }
+            for(int i = index + 1; i < array.Length; i++)
+            {
+                finalarray[i - 1] = array[i];                
+            }
+            array = finalarray;
+        }
+        static void OutputMethod(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+        }
+    }
+}
