@@ -1,0 +1,45 @@
+using System;
+
+namespace Practice
+{
+    class Program
+    {       
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите количество элементов массива: ");
+            int arrlength = int.Parse(Console.ReadLine());
+            int[] arr = new int[arrlength];
+            Console.WriteLine("Введите элементы массива: ");
+            for(int i = 0; i < arrlength; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Введите количество элементов, которое вы хотите добавить: ");
+            int addtoarr = int.Parse(Console.ReadLine());
+            ChangeSizeofArray(ref arr, addtoarr);
+
+            Console.WriteLine("Массив: ");
+            for(int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i] + " ");
+            }
+
+        }
+
+        static void ChangeSizeofArray(ref int[] array, int count)
+        {
+            int[] finalarray = new int[array.Length + count];
+            for(int i = 0; i < array.Length; i++)
+            {
+                finalarray[i] = array[i];
+            }
+            Console.WriteLine("Введите новые элементы массива: ");
+            for(int i = array.Length; i < count + array.Length; i++)
+            {
+                finalarray[i] = int.Parse(Console.ReadLine());
+            }
+            array = finalarray;
+        }
+    }
+}
