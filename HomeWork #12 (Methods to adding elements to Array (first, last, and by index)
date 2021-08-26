@@ -9,7 +9,7 @@ namespace Adding_and_Deleting_Array_Elements
             Console.WriteLine("Введите количество элементов массива:");
             int a = int.Parse(Console.ReadLine());
             int[] arr = new int[a];            
-            int switchvariable;
+            int b;
             for (int i = 0; i < a; i++)
             {
                 Console.WriteLine("Нажмите цифру для выбора действия, которое вы хотите осуществить:");
@@ -17,12 +17,9 @@ namespace Adding_and_Deleting_Array_Elements
                 Console.WriteLine("2. Добавить элемент в конец массива.");
                 Console.WriteLine("3. Добавить элемент по индексу.");
                 Console.WriteLine("4. Завершить работу и вывести массив.");
-                switchvariable = int.Parse(Console.ReadLine());
-                if(switchvariable == 4)
-                {
-                    break;
-                }
-                switch (switchvariable)
+                b = int.Parse(Console.ReadLine());
+                
+                switch (b)
                 {
                     case 1:
                         Console.WriteLine("Введите начальный элемент массива, который вы хотите добавить: ");
@@ -38,6 +35,11 @@ namespace Adding_and_Deleting_Array_Elements
                         Console.WriteLine("Введите значение, которое хотите добавить: ");
                         AddIndexElement(arr, result);
                         break;
+                    case 4:
+                        Console.WriteLine("Массив: ");
+                        OutputMethod(arr);
+                        return;
+
                     default:
                         Console.WriteLine("Вы нажали неправильную кнопку, повторите попытку");
                         break;
@@ -70,3 +72,4 @@ namespace Adding_and_Deleting_Array_Elements
         }
     }
 }
+
